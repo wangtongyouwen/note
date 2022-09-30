@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.custom-menu {
+  height: 50px;
+  width: 100%;
+  background: pink;
+  -webkit-app-region: drag;
+}
+
+.custom-menu ul {
+  list-style: none;
+}
+
+.custom-menu ul li {
+  float: left;
+  width: 80px;
+  line-height: 50px;
+  text-align: center;
+  margin-left: 10px;
+  -webkit-app-region: no-drag;
+}

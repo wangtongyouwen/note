@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring_24_case_transfer" />
+        <module name="springmvc_02_bean_load" />
+        <module name="springmvc_01_quickstart" />
+        <module name="springmvc_04_request_param" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-encoding utf-8" />
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="spring_24_case_transfer" options="" />
+      <module name="springmvc_01_quickstart" options="" />
+      <module name="springmvc_02_bean_load" options="" />
+      <module name="springmvc_04_request_param" options="" />
+    </option>
+  </component>
+</project>
