@@ -497,7 +497,7 @@ public class AppForName {
 
 关于bean的基础配置中，需要大家掌握以下属性:
 
-![image-20220928135946183](../../../AppData/Roaming/Typora/typora-user-images/image-20220928135946183.png)
+![image-20221006194802421](https://picgo-1259245122.cos.ap-shanghai.myqcloud.com/img/note/ssm/202210061948425.png)
 
 ### 1.1.4 bean实例化
 
@@ -813,7 +813,7 @@ public class AppForInstanceUser {
 
 (4)运行后，可以查看到结果
 
-![1629788769436](../../SSM资料/课程笔记/基础框架笔记/基础框架8笔记/Spring笔记/spring_day01/assets/1629788769436.png)
+![1629788769436](https://picgo-1259245122.cos.ap-shanghai.myqcloud.com/img/note/ssm/202210081005321.png)
 
 对于上面这种实例工厂的方式如何交给Spring管理呢?
 
