@@ -430,3 +430,100 @@ server:
 
 
 
+# 12 docker
+
+## 卸装
+
+```
+yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine \
+                  docker-ce
+```
+
+## 安装
+
+```bash
+# 设置docker镜像源
+yum-config-manager \
+    --add-repo \
+    https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+    
+sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.repos.d/docker-ce.repo
+
+yum makecache fast
+
+yum install -y docker-ce
+
+# 关闭
+systemctl stop firewalld
+# 禁止开机启动防火墙
+systemctl disable firewalld
+
+systemctl start docker  # 启动docker服务
+systemctl stop docker  # 停止docker服务
+systemctl restart docker  # 重启docker服务
+```
+
+## 常用指令
+
+```sh
+docker pull xxx # 拉取镜像
+docker images # 查看拉取到的镜像
+docker save -o [保存的目标文件名称] [镜像名称]
+docker rmi nginx:latest # 删除镜像
+docker load -i nginx.tar # 加载本地文件
+
+docker run
+docker pause
+docker unpause
+docker stop
+docker start
+docker exec # 进入容器执行命令
+docker logs # 查看容器运行日志
+docker ps # 查看所有运行的容器及状态
+docker rm # 删除指定容器
+
+docker run --name containerName -p 80:80 -d nginx   # 冒号左侧是宿主机端口，一般可以任意；右边端口是容器内端口，一般固定
+docker -d # 让容器后台运行
+docker -p # 指定端口映射
+docker logs -f mn # 跟踪日志
+docker ps -a # 查看所有容器
+docker start mn # 重新启动容器
+
+docker exec -it mn bash # 进入容器
+cd /usr/share/nginx/html # 查看DockerHub网站中的nginx页面，可以知道nginx的html目录位置在`/usr/share/nginx/html`
+cat index.html # 进入首页
+exit # 退出容器
+docker rm mn -f # 强制删除运行中的容器
+
+
+
+docker volume [COMMAND]
+docker volume命令是数据卷操作，根据命令后跟随的command来确定下一步的操作：
+- create 创建一个volume
+- inspect 显示一个或多个volume的信息
+- ls 列出所有的volume
+- prune 删除未使用的volume
+- rm 删除一个或多个指定的volume
+
+docker run \
+  --name mn \
+  -v html:/root/html \
+  -p 8080:80
+  nginx \
+`-v html:/root/htm` ：把html数据卷挂载到容器内的/root/html这个目录中      
+
+docker run --name mn -p 80:80 -v html:/usr/share/nginx/html -d nginx
+ 
+```
+
+
+

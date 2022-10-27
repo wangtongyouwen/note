@@ -404,6 +404,8 @@ docker load -i nginx.tar
 
 ### 2.2.1.容器相关命令
 
+![image-20221025215444430](https://picgo-1259245122.cos.ap-shanghai.myqcloud.com/img/note/springcloud/202210252154290.png)
+
 容器操作的命令如图：
 
 ![image-20210731161950495](https://picgo-1259245122.cos.ap-shanghai.myqcloud.com/img/note/springcloud/202210251906260.png)
@@ -751,6 +753,17 @@ vi index.html
 
 ③ 设置MySQL密码
 
+```
+docker run \
+--name mysql \
+-e MYSQL_ROOT_PASSWORD=123 \
+-p 3306:3306 \
+-v /tmp/mysql/conf/hmy.cnf:/etc/mysql/conf.d/hmy.cnf \
+-v /tmp/mysql/data:/var/lib/mysql \
+-d \
+mysql:5.7.25
+```
+
 
 
 ### 2.3.7.小结
@@ -949,6 +962,8 @@ docker run的命令中通过 -v 参数挂载文件或目录到容器中：
 # 4.Docker-Compose
 
 Docker Compose可以基于Compose文件帮我们快速的部署分布式应用，而无需手动一个个创建和运行容器！
+
+https://hub.docker.com/_/registry
 
 ![image-20210731180921742](https://picgo-1259245122.cos.ap-shanghai.myqcloud.com/img/note/springcloud/202210251906212.png)
 
@@ -1162,6 +1177,10 @@ gateway：
 docker-compose up -d
 ```
 
+```
+docker-compose restart gateway userservice orderservice
+```
+
 
 
 
@@ -1182,10 +1201,10 @@ docker-compose up -d
 
 推送镜像到私有镜像服务必须先tag，步骤如下：
 
-① 重新tag本地镜像，名称前缀为私有仓库的地址：192.168.150.101:8080/
+① 重新tag本地镜像，名称前缀为私有仓库的地址：192.168.120.200:8080/
 
  ```sh
-docker tag nginx:latest 192.168.150.101:8080/nginx:1.0 
+docker tag nginx:latest 192.168.120.200:8080/nginx:1.0 
  ```
 
 
@@ -1202,5 +1221,13 @@ docker push 192.168.150.101:8080/nginx:1.0
 
 ```sh
 docker pull 192.168.150.101:8080/nginx:1.0 
+```
+
+
+
+docker 常用指令
+
+```
+docker save -o nginx.tar nginx:latest
 ```
 
