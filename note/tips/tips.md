@@ -185,6 +185,8 @@ https://plugins.jetbrains.com/
 - 快速生成try catch方法:  ctrl+alt+t
 - 查看父方法 ctrl+alt+鼠标左键
 - run context configuration ctrl+shift+f10
+- 抽取 ctrl+alt+m
+- 选中相同的类同时修改：ctrl+shift+f6
 
 ## 7.3 查看源码
 
@@ -426,9 +428,15 @@ server:
   port: 8014
 ```
 
+# 11.2 mysql
 
+mysql：8.0
 
+![image-20221029154155350](https://picgo-1259245122.cos.ap-shanghai.myqcloud.com/img/note/springcloud/202210291541717.png)
 
+mysql：5.0
+
+![image-20221029154213245](https://picgo-1259245122.cos.ap-shanghai.myqcloud.com/img/note/springcloud/202210291542563.png)
 
 # 12 docker
 
